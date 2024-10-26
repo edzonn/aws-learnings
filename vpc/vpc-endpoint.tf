@@ -11,31 +11,31 @@ resource "aws_vpc_endpoint" "aws-learnings-test-ecrapi-endpoint" {
 
   depends_on = [ 
       aws_subnet.aws-learnings-test-private-subnet ]
-# policy=<<POLICY
-# {
-# 	"Statement": [
-# 		{
-# 			"Effect": "Allow",
-# 			"Principal": "*",
-# 			"Action": "*",
-# 			"Resource": "*",
-# 			"Condition": {
-# 				"StringEquals": {
-# 					"aws:PrincipalArn": [
-# 						"arn:aws:iam::092744370500:role/AmazonEKS_EBS_CSI_DriverRole",
-#             "arn:aws:iam::092744370500:role/node-group-2-eks-node-group-20240630055633841600000005",
-#             "arn:aws:iam::092744370500:instance-profile/eks-a2c833df-aed6-a982-fbe8-e69553960588",
-#             "arn:aws:iam::092744370500:role/role-with-oidc"
-# 					]
-# 				},
-# 				"StringNotEquals": {
-# 					"aws:sourceVpc": "vpc-04ff4c8abd765d446"
-# 				}
-# 			}
-# 		}
-# 	]
-# }
-# POLICY
+policy=<<POLICY
+{
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Principal": "*",
+			"Action": "*",
+			"Resource": "*",
+			"Condition": {
+				"StringEquals": {
+					"aws:PrincipalArn": [
+						"arn:aws:iam::092744370500:role/AmazonEKS_EBS_CSI_DriverRole",
+            "arn:aws:iam::092744370500:role/node-group-2-eks-node-group-20240630055633841600000005",
+            "arn:aws:iam::092744370500:instance-profile/eks-a2c833df-aed6-a982-fbe8-e69553960588",
+            "arn:aws:iam::092744370500:role/role-with-oidc"
+					]
+				},
+				"StringNotEquals": {
+					"aws:sourceVpc": "vpc-04ff4c8abd765d446"
+				}
+			}
+		}
+	]
+}
+POLICY
 # }
 
 # add policy using data source 
@@ -58,30 +58,30 @@ resource "aws_vpc_endpoint" "aws-learnings-test-ecrdkr-endpoint" {
     }
   depends_on = [ 
       aws_subnet.aws-learnings-test-private-subnet ]
-# policy=<<POLICY
-# {
-# 	"Statement": [
-# 		{
-# 			"Effect": "Allow",
-# 			"Principal": "*",
-# 			"Action": "*",
-# 			"Resource": "*",
-# 			"Condition": {
-# 				"StringEquals": {
-# 					"aws:PrincipalArn": [
-# 						"arn:aws:iam::092744370500:role/AmazonEKS_EBS_CSI_DriverRole",
-#             "arn:aws:iam::092744370500:role/node-group-2-eks-node-group-20240630055633841600000005",
-#             "arn:aws:iam::092744370500:role/role-with-oidc"
-# 					]
-# 				},
-# 				"StringNotEquals": {
-# 					"aws:sourceVpc": "vpc-04ff4c8abd765d446"
-# 				}
-# 			}
-# 		}
-# 	]
-# }
-# POLICY
+policy=<<POLICY
+{
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Principal": "*",
+			"Action": "*",
+			"Resource": "*",
+			"Condition": {
+				"StringEquals": {
+					"aws:PrincipalArn": [
+						"arn:aws:iam::092744370500:role/AmazonEKS_EBS_CSI_DriverRole",
+            "arn:aws:iam::092744370500:role/node-group-2-eks-node-group-20240630055633841600000005",
+            "arn:aws:iam::092744370500:role/role-with-oidc"
+					]
+				},
+				"StringNotEquals": {
+					"aws:sourceVpc": "vpc-04ff4c8abd765d446"
+				}
+			}
+		}
+	]
+}
+POLICY
 
 # policy = file("${path.module}/policy.json")
 
@@ -101,30 +101,30 @@ resource "aws_vpc_endpoint" "aws-learnings-test-ecrapi-ecr-s3-endpoint" {
     }
   depends_on = [ 
       aws_subnet.aws-learnings-test-private-subnet ]
-# policy=<<POLICY
-# {
-# 	"Statement": [
-# 		{
-# 			"Effect": "Allow",
-# 			"Principal": "*",
-# 			"Action": "*",
-# 			"Resource": "*",
-# 			"Condition": {
-# 				"StringEquals": {
-# 					"aws:PrincipalArn": [
-# 						"arn:aws:iam::092744370500:role/AmazonEKS_EBS_CSI_DriverRole",
-#             "arn:aws:iam::092744370500:role/node-group-2-eks-node-group-20240630055633841600000005",
-#             "arn:aws:iam::092744370500:role/role-with-oidc"
-# 					]
-# 				},
-# 				"StringNotEquals": {
-# 					"aws:sourceVpc": "vpc-04ff4c8abd765d446"
-# 				}
-# 			}
-# 		}
-# 	]
-# }
-# POLICY
+policy=<<POLICY
+{
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Principal": "*",
+			"Action": "*",
+			"Resource": "*",
+			"Condition": {
+				"StringEquals": {
+					"aws:PrincipalArn": [
+						"arn:aws:iam::092744370500:role/AmazonEKS_EBS_CSI_DriverRole",
+            "arn:aws:iam::092744370500:role/node-group-2-eks-node-group-20240630055633841600000005",
+            "arn:aws:iam::092744370500:role/role-with-oidc"
+					]
+				},
+				"StringNotEquals": {
+					"aws:sourceVpc": "vpc-04ff4c8abd765d446"
+				}
+			}
+		}
+	]
+}
+POLICY
 
 
 }
@@ -149,119 +149,119 @@ resource "aws_vpc_endpoint" "aws-learnings-test-ecs-s3-endpoint" {
     }
   # create policy for s3 endpoint minimal access
 
-# policy=<<POLICY
-# {
-# 	"Statement": [
-# 		{
-# 			"Effect": "Allow",
-# 			"Principal": "*",
-# 			"Action": "*",
-# 			"Resource": "*",
-# 			"Condition": {
-# 				"StringEquals": {
-# 					"aws:PrincipalArn": [
-# 						"arn:aws:iam::092744370500:role/AmazonEKS_EBS_CSI_DriverRole",
-#             "arn:aws:iam::092744370500:role/node-group-2-eks-node-group-20240630055633841600000005",
-#             "arn:aws:iam::092744370500:instance-profile/eks-a2c833df-aed6-a982-fbe8-e69553960588",
-#             "arn:aws:iam::092744370500:role/role-with-oidc"
-# 					]
-# 				},
-# 				"StringNotEquals": {
-# 					"aws:sourceVpc": "vpc-04ff4c8abd765d446"
-# 				}
-# 			}
-# 		}
-# 	]
-# }
-# POLICY
+policy=<<POLICY
+{
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Principal": "*",
+			"Action": "*",
+			"Resource": "*",
+			"Condition": {
+				"StringEquals": {
+					"aws:PrincipalArn": [
+						"arn:aws:iam::092744370500:role/AmazonEKS_EBS_CSI_DriverRole",
+            "arn:aws:iam::092744370500:role/node-group-2-eks-node-group-20240630055633841600000005",
+            "arn:aws:iam::092744370500:instance-profile/eks-a2c833df-aed6-a982-fbe8-e69553960588",
+            "arn:aws:iam::092744370500:role/role-with-oidc"
+					]
+				},
+				"StringNotEquals": {
+					"aws:sourceVpc": "vpc-04ff4c8abd765d446"
+				}
+			}
+		}
+	]
+}
+POLICY
 
 # policy = file("${path.module}/policy.json")
 }
 
 
-# resource "aws_vpc_endpoint" "aws-learnings-test-interface-s3-endpoint" {
-#     vpc_id = aws_vpc.aws-learnings-test-vpc.id
-#     service_name = "com.amazonaws.${var.region}.s3"
-#     vpc_endpoint_type = "Interface"
-#     private_dns_enabled = true
-#     # security_group_ids = [aws_security_group.aws-learnings-test-ecs-sg.id]
-#     # subnet_ids = aws_subnet.aws-learnings-test-private-subnet.*.id
-#     route_table_ids = flatten([
-#           aws_route_table.aws-learnings-test-priv-rtb[*].id,
-#           [aws_route_table.aws-learnings-test-pub-rtb.id]
-#   ])
+resource "aws_vpc_endpoint" "aws-learnings-test-interface-s3-endpoint" {
+    vpc_id = aws_vpc.aws-learnings-test-vpc.id
+    service_name = "com.amazonaws.${var.region}.s3"
+    vpc_endpoint_type = "Interface"
+    private_dns_enabled = true
+    # security_group_ids = [aws_security_group.aws-learnings-test-ecs-sg.id]
+    # subnet_ids = aws_subnet.aws-learnings-test-private-subnet.*.id
+    route_table_ids = flatten([
+          aws_route_table.aws-learnings-test-priv-rtb[*].id,
+          [aws_route_table.aws-learnings-test-pub-rtb.id]
+  ])
 
-#     tags = {
-#         Name = "aws-learnings-test-ecs-s3-endpoint-interface"
-#     }
-#   # create policy for s3 endpoint minimal access
+    tags = {
+        Name = "aws-learnings-test-ecs-s3-endpoint-interface"
+    }
+  # create policy for s3 endpoint minimal access
 
-# policy=<<POLICY
-# {
-# 	"Statement": [
-# 		{
-# 			"Effect": "Allow",
-# 			"Principal": "*",
-# 			"Action": "*",
-# 			"Resource": "*",
-# 			"Condition": {
-# 				"StringEquals": {
-# 					"aws:PrincipalArn": [
-# 						"arn:aws:iam::092744370500:role/AmazonEKS_EBS_CSI_DriverRole",
-#             "arn:aws:iam::092744370500:role/node-group-2-eks-node-group-20240630055633841600000005",
-#             "arn:aws:iam::092744370500:instance-profile/eks-a2c833df-aed6-a982-fbe8-e69553960588",
-#             "arn:aws:iam::092744370500:role/role-with-oidc"
-# 					]
-# 				},
-# 				"StringNotEquals": {
-# 					"aws:SourceVpc": "vpc-04ff4c8abd765d446"
-# 				}
-# 			}
-# 		}
-# 	]
-# }
-# POLICY
-# }
+policy=<<POLICY
+{
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Principal": "*",
+			"Action": "*",
+			"Resource": "*",
+			"Condition": {
+				"StringEquals": {
+					"aws:PrincipalArn": [
+						"arn:aws:iam::092744370500:role/AmazonEKS_EBS_CSI_DriverRole",
+            "arn:aws:iam::092744370500:role/node-group-2-eks-node-group-20240630055633841600000005",
+            "arn:aws:iam::092744370500:instance-profile/eks-a2c833df-aed6-a982-fbe8-e69553960588",
+            "arn:aws:iam::092744370500:role/role-with-oidc"
+					]
+				},
+				"StringNotEquals": {
+					"aws:SourceVpc": "vpc-04ff4c8abd765d446"
+				}
+			}
+		}
+	]
+}
+POLICY
+}
 
-# # create ecs-agent endpoint.
+# create ecs-agent endpoint.
 
-# resource "aws_vpc_endpoint" "aws-learnings-test-ecs-agent-endpoint" {
-#     vpc_id = aws_vpc.aws-learnings-test-vpc.id
-#     service_name = "com.amazonaws.${var.region}.ecs-agent"
-#     vpc_endpoint_type = "Interface"
-#     private_dns_enabled = true
-#     security_group_ids = [aws_security_group.aws-learnings-test-ecs-sg.id]
-#     subnet_ids = aws_subnet.aws-learnings-test-private-subnet.*.id
-#     tags = {
-#         Name = "aws-learnings-test-ecs-agent-endpoint"
-#     }
-# }
+resource "aws_vpc_endpoint" "aws-learnings-test-ecs-agent-endpoint" {
+    vpc_id = aws_vpc.aws-learnings-test-vpc.id
+    service_name = "com.amazonaws.${var.region}.ecs-agent"
+    vpc_endpoint_type = "Interface"
+    private_dns_enabled = true
+    security_group_ids = [aws_security_group.aws-learnings-test-ecs-sg.id]
+    subnet_ids = aws_subnet.aws-learnings-test-private-subnet.*.id
+    tags = {
+        Name = "aws-learnings-test-ecs-agent-endpoint"
+    }
+}
 
-# # create ecs-telemetry endpoint
-# resource "aws_vpc_endpoint" "aws-learnings-test-ecs-telemetry-endpoint" {
-#     vpc_id = aws_vpc.aws-learnings-test-vpc.id
-#     service_name = "com.amazonaws.${var.region}.ecs-telemetry"
-#     vpc_endpoint_type = "Interface"
-#     private_dns_enabled = true
-#     security_group_ids = [aws_security_group.aws-learnings-test-ecs-sg.id]
-#     subnet_ids = aws_subnet.aws-learnings-test-private-subnet.*.id
-#     tags = {
-#         Name = "aws-learnings-test-ecs-telemetry-endpoint"
-#     }
-# }
+# create ecs-telemetry endpoint
+resource "aws_vpc_endpoint" "aws-learnings-test-ecs-telemetry-endpoint" {
+    vpc_id = aws_vpc.aws-learnings-test-vpc.id
+    service_name = "com.amazonaws.${var.region}.ecs-telemetry"
+    vpc_endpoint_type = "Interface"
+    private_dns_enabled = true
+    security_group_ids = [aws_security_group.aws-learnings-test-ecs-sg.id]
+    subnet_ids = aws_subnet.aws-learnings-test-private-subnet.*.id
+    tags = {
+        Name = "aws-learnings-test-ecs-telemetry-endpoint"
+    }
+}
 
-# # create ecs endpoint
-# resource "aws_vpc_endpoint" "aws-learnings-test-ecs-endpoint" {
-#     vpc_id = aws_vpc.aws-learnings-test-vpc.id
-#     service_name = "com.amazonaws.${var.region}.ecs"
-#     vpc_endpoint_type = "Interface"
-#     private_dns_enabled = true
-#     security_group_ids = [aws_security_group.aws-learnings-test-ecs-sg.id]
-#     subnet_ids = aws_subnet.aws-learnings-test-private-subnet.*.id
-#     tags = {
-#         Name = "aws-learnings-test-ecs-endpoint"
-#     }
-# }
+# create ecs endpoint
+resource "aws_vpc_endpoint" "aws-learnings-test-ecs-endpoint" {
+    vpc_id = aws_vpc.aws-learnings-test-vpc.id
+    service_name = "com.amazonaws.${var.region}.ecs"
+    vpc_endpoint_type = "Interface"
+    private_dns_enabled = true
+    security_group_ids = [aws_security_group.aws-learnings-test-ecs-sg.id]
+    subnet_ids = aws_subnet.aws-learnings-test-private-subnet.*.id
+    tags = {
+        Name = "aws-learnings-test-ecs-endpoint"
+    }
+}
 
 # resource "aws_vpc_endpoint" "aws-learnings-test-vpce" {
 #   vpc_id                    = aws_vpc.aws-learnings-test-vpc.id
@@ -297,12 +297,10 @@ resource "aws_vpc_endpoint" "aws-learnings-test-ecs-s3-endpoint" {
 # }
 # POLICY
 
-# policy = file("${path.module}/policy.json")
+# # policy = file("${path.module}/policy.json")
 
 #   depends_on = [ 
 #       aws_subnet.aws-learnings-test-private-subnet ]
-
-# create policy for ec2 endpoint minimal access with principal arn
 # }
 
 # resource "aws_route" "aws-learnings-test-priv-route" {
@@ -316,7 +314,7 @@ resource "aws_vpc_endpoint" "aws-learnings-test-ecs-s3-endpoint" {
 
 resource "aws_security_group" "aws-learnings-test-ecrdkr-sg" {
   name        = "aws-learnings-test-ecrdkr-sg"
-  description = "Security group for DA MLOps testuction ECR Docker"
+  description = "Security group for POC ECR Docker"
 
   vpc_id = aws_vpc.aws-learnings-test-vpc.id
 
@@ -337,7 +335,7 @@ resource "aws_security_group" "aws-learnings-test-ecrdkr-sg" {
 
 resource "aws_security_group" "aws-learnings-test-ecrapi-sg" {
   name        = "aws-learnings-test-ecrapi-sg"
-  description = "Security group for DA MLOps testuction ECR API"
+  description = "Security group for POC ECR API"
 
   vpc_id = aws_vpc.aws-learnings-test-vpc.id
 
@@ -360,7 +358,7 @@ resource "aws_security_group" "aws-learnings-test-ecrapi-sg" {
 
 resource "aws_security_group" "aws-learnings-test-ecs-sg" {
   name        = "aws-learnings-test-ecs-sg"
-  description = "Security group for DA MLOps testuction ECS"
+  description = "Security group for POC ECS"
 
   vpc_id = aws_vpc.aws-learnings-test-vpc.id
 
